@@ -23,9 +23,9 @@ import {
 } from "@/components/ui/form"
 import {Input} from "@/components/ui/input"
 import {FIELD_NAMES, FIELD_TYPES} from "@/constants"
-import ImageUpload from "./ImageUpload"
 import {toast} from "sonner"
 import {useRouter} from "next/navigation" // ✅ Correct!
+import FileUpload from "./FileUpload"
 
 interface Props<T extends FieldValues> {
   schema: ZodType<T>
@@ -69,7 +69,7 @@ const AuthComponent = <T extends FieldValues>({
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-2xl font-semibold text-white">
-        {isSignIn ? "Welcome bsck to BookWise" : "Create your library account"}
+        {isSignIn ? "Welcome back to BookWise" : "Create your library account"}
       </h1>
 
       <p className="text-light-100">
@@ -94,7 +94,14 @@ const AuthComponent = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
-                      <ImageUpload onFileChange={field.onChange} />
+                      <FileUpload
+                        type="image"
+                        accept="image/*"
+                        placeholder="Upload your ID"
+                        folder="ids"
+                        varient="dark"
+                        onFileChange={field.onChange}
+                      />
                     ) : (
                       <Input
                         required

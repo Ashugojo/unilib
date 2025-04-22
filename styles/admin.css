@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Add theme variables consistent with globals.css */
+@theme {
+  --color-primary-admin: #25388c;
+}
+
+@utility admin-container {
+  @apply flex w-[calc(100%-264px)] flex-1 flex-col bg-gray-100 p-5 sm:p-10;
+}
+
+@utility back-btn {
+  @apply mb-10 w-fit border border-gray-100 bg-white text-xs font-medium text-gray-900 hover:bg-gray-100;
+}
+
+@utility confirm-trigger {
+  @apply font-semibold text-sm shadow-none hover:bg-white/70 w-full;
+}
+
+@utility confirm-approve {
+  @apply bg-green-100 text-green-800 hover:bg-green-100/70;
+}
+
+@utility confirm-reject {
+  @apply bg-red-100 text-red-800 hover:bg-red-100/70;
+}
+
+@utility confirm-content {
+  @apply sm:max-w-md flex flex-col items-center justify-center p-6;
+}
+
+@utility confirm-illustration {
+  @apply size-28 rounded-full flex justify-center items-center mx-auto;
+}
+
+@utility confirm-illustration-inner {
+  @apply size-[70%] rounded-full flex justify-center items-center;
+}
+
+@utility confirm-btn {
+  @apply w-full min-h-14 rounded-xl font-bold text-base text-gray-100;
+}
+
+@utility book-form-input {
+  @apply min-h-14 border border-gray-100 bg-gray-200 p-4 text-base font-semibold placeholder:font-normal placeholder:text-slate-500;
+}
+
+@utility book-form-btn {
+  @apply min-h-14 w-full;
+  background-color: var(--color-primary-admin);
+
+  &:hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-primary-admin) 95%,
+      transparent
+    );
+  }
+}
+
+@utility view-btn {
+  @apply bg-gray-100 rounded-md font-semibold hover:bg-gray-100/80 shadow-none;
+  color: var(--color-primary-admin);
+}
+
+@utility add-new-book-btn {
+  @apply mt-7 mb-3 bg-gray-100 py-4 px-3 flex flex-row items-center rounded-xl gap-4;
+}
+
+@utility add-new-book-btn-icon {
+  @apply size-12 bg-white rounded-full flex justify-center items-center;
+}
+
+@utility add-new-book-btn-text {
+  @apply font-semibold text-lg text-gray-600;
+}
+
+@utility stat {
+  @apply bg-white rounded-xl p-5 space-y-5 flex-1;
+}
+
+@utility stat-info {
+  @apply flex justify-between items-center gap-5;
+}
+
+@utility stat-label {
+  @apply font-medium text-base text-gray-400 whitespace-nowrap;
+}
+
+@utility stat-count {
+  @apply font-semibold text-3xl text-gray-600;
+}
+
+@utility book-stripe {
+  @apply flex flex-row gap-4 bg-gray-100 p-4 rounded-lg;
+}
+
+@utility book-stripe-title {
+  @apply font-semibold text-base text-gray-600 line-clamp-1;
+}
+
+@utility book-stripe-author {
+  @apply flex flex-wrap flex-row items-center gap-2;
+}
+
+@utility book-stripe-author-name {
+  @apply text-gray-400 text-sm line-clamp-1;
+}
+
+@utility book-stripe-author-separator {
+  @apply size-1 rounded-full bg-gray-400;
+}
+
+@utility book-stripe-author-role {
+  @apply text-gray-400 text-sm;
+}
+
+@utility book-stripe-user {
+  @apply mt-2.5 flex flex-row flex-wrap gap-5;
+}
+
+@utility book-stripe-user-avatar {
+  @apply flex flex-row items-center gap-1.5;
+}
+
+@utility book-stripe-user-avatar-text {
+  @apply text-xs text-gray-300;
+}
+
+@utility book-stripe-borrow-date {
+  @apply flex flex-row items-center gap-1.5;
+}
+
+@utility book-stripe-borrow-date-text {
+  @apply text-xs text-gray-300;
+}
+
+@utility color-picker {
+  @apply flex min-h-14 flex-row items-center gap-3 rounded-md border border-gray-100 bg-gray-200 p-4 text-base font-semibold text-gray-600;
+}
+
+@utility hex-input {
+  @apply h-full flex-1 bg-transparent outline-none;
+}
+
+@utility hex-color-picker {
+  @apply absolute left-0 top-full z-50 mt-3;
+}
+
+@utility error-fallback {
+  @apply p-4 bg-red-100 text-red-700 rounded-md;
+}
+
+@utility error-fallback-heading {
+  @apply text-lg font-semibold mb-2;
+}
+
+@utility admin-header {
+  @apply flex lg:items-end items-start justify-between lg:flex-row flex-col gap-5 sm:mb-10 mb-5;
+}
+
+@utility admin-search {
+  @apply flex border border-gray-100 min-h-14 items-center gap-1 rounded-md bg-gray-200 px-4 lg:max-w-md w-full;
+}
+
+@utility admin-search-input {
+  @apply w-full border-0 shadow-none bg-transparent outline-none focus:outline-none focus:ring-0 focus:border-0;
+}
+
+@utility admin-sidebar {
+  @apply sticky left-0 top-0 flex h-dvh flex-col justify-between bg-white px-5 pb-5 pt-10;
+}
+
+@utility admin-sidebar-logo {
+  @apply flex flex-row items-center gap-2 border-b border-dashed pb-10 max-md:justify-center;
+  border-color: color-mix(in srgb, var(--color-primary-admin) 20%, transparent);
+}
+
+@utility admin-sidebar-logo-title {
+  @apply text-2xl font-semibold max-md:hidden;
+  color: var(--color-primary-admin);
+}
+
+@utility admin-sidebar-link {
+  @apply flex flex-row items-center w-full gap-2 rounded-lg px-5 py-3.5 max-md:justify-center;
+}
+
+@utility admin-sidebar-link-label {
+  @apply text-base font-medium max-md:hidden;
+}
+
+@utility admin-sidebar-user {
+  @apply my-6 mx-1 flex w-full flex-row gap-2 justify-center rounded-full border-2 border-gray-100 shadow-sm max-md:px-2;
+}
+
+@utility user-card {
+  @apply w-40 bg-gray-100  py-4 px-3 flex justify-center items-center flex-col rounded-xl text-center;
+}
+
+@utility user-card-name {
+  @apply font-medium mt-3 text-gray-600 line-clamp-1 w-full break-words;
+}
+
+@utility user-card-email {
+  @apply text-gray-400 text-sm line-clamp-1 break-words w-full;
+}
+
+/* Add default border color compatibility for Tailwind v4, similar to globals.css */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
